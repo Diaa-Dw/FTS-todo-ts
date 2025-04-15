@@ -1,0 +1,10 @@
+.todo-list__table-header {
+  padding: 1rem;
+  border: 1px solid var(--secondary-font-color);
+}
+@media (max-width: 768px) {
+  .todo-list__table-head {
+    /* Hide headers on mobile */
+    display: none;
+  }
+}
