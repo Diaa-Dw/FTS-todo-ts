@@ -1,7 +1,13 @@
-import MainLayout from "./layouts/MainLayout";
+import Header from "./components/Header";
+import TodosContanier from "./components/TodosContainer";
 
 function App() {
-  return <MainLayout />;
+  return (
+    <>
+      <Header />
+      <TodosContanier />
+    </>
+  );
 }
 
 export default App;

@@ -1,6 +1,4 @@
-import React from "react";
-
-import "../styles/formInput.style.css";
+import "./formInput.style.css";
 
 interface FormInputProps {
   type: string;

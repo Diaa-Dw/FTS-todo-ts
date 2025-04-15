@@ -1,7 +1,6 @@
-import React from "react";
-import TodoForm from "./TodoForm";
+import TodoForm from "../TodoForm";
+import "./todosContanier.style.css";
 
-import "../styles/todosContanier.style.css";
 const TodosContanier = () => {
   return (
     <main className='todo-list'>
