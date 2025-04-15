@@ -1,0 +1,12 @@
+.todo-list__table-container {
+  margin: 20px 0;
+  height: 50vh;
+  overflow: auto;
+}
+
+.todo-list__table {
+  width: 100%;
+  max-height: 50vh;
+  margin: 40px auto;
+  border-collapse: collapse;
+}
