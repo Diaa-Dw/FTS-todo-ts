@@ -1,10 +1,10 @@
-import "./tableHeader.style.css";
+import "./tableHead.style.css";
 
-interface TableHeaderProps {
+interface TableHeadProps {
   tableAttributes: string[];
 }
 
-const TableHeader = ({ tableAttributes }: TableHeaderProps) => {
+const TableHead = ({ tableAttributes }: TableHeadProps) => {
   return (
     <thead className='todo-list__table-head'>
       <tr className='todo-list__table-row'>
@@ -18,4 +18,4 @@ const TableHeader = ({ tableAttributes }: TableHeaderProps) => {
   );
 };
 
-export default TableHeader;
+export default TableHead;
