@@ -1,0 +1,10 @@
+.todo-list__form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.todo-list__form-container > * {
+  width: min(100%, 400px);
+}
