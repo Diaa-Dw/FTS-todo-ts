@@ -1,0 +1,10 @@
+.todo-list__table-body {
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .todo-list__table-body {
+    display: block;
+    width: 100%;
+  }
+}

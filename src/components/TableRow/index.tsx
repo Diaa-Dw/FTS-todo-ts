@@ -1,5 +1,6 @@
 import { FaCheck, FaHourglassHalf, FaTrash } from "react-icons/fa";
 import "./tableRow.style.css";
+import Button from "../Button";
 
 interface Todo {
   id: number;
@@ -17,21 +18,21 @@ const TableRow = ({ todo }: TableRowProps) => {
 
   return (
     <tr className={`todo-list__table-row ${status}`}>
-      <td className='todo-list__table-cell'>${todo.id}</td>
+      <td className='todo-list__table-cell'>{todo.id}</td>
       <td className='todo-list__table-cell todo-list__table-cell--task'>
         {task}
       </td>
-      <td className='todo-list__table-cell' data-label='Status'>
-        <span className='todo-list__task-status'>${status}</span>
+      <td className='todo-list__table-cell'>
+        <span className='todo-list__task-status'>{status}</span>
       </td>
-      <td className='todo-list__table-cell' data-label='Actions'>
+      <td className='todo-list__table-cell'>
         <div className='todo-list__actions-container'>
-          <button className='todo-list__button todo-list__button--status'>
+          <Button size='sm' variant='outline'>
             {status === "completed" ? <FaHourglassHalf /> : <FaCheck />}
-          </button>
-          <button className='todo-list__button todo-list__button--delete'>
+          </Button>
+          <Button size='sm' variant='outline'>
             <FaTrash />
-          </button>
+          </Button>
         </div>
       </td>
     </tr>

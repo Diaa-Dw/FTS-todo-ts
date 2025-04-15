@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <header className='header'>
       <h1 className='header__title'>TODO</h1>
-      <Button variant='outline' size='sm'>
+      <Button variant='outline' size='md'>
         <IoSunny />
       </Button>
     </header>

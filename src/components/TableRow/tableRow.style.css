@@ -1,3 +1,11 @@
+.todo-list__task-status {
+  padding: 0.8rem 1rem;
+
+  border-radius: 5px;
+
+  color: var(--secondary-color);
+}
+
 .todo-list__table-row.completed .todo-list__task-status {
   background-color: var(--completed-status-color);
 }
@@ -5,9 +13,21 @@
   background-color: var(--pending-status-color);
 }
 
+.todo-list__table-cell {
+  padding: 1rem;
+  border: 1px solid var(--secondary-font-color);
+}
+
 .todo-list__table-row.completed .todo-list__table-cell--task {
   text-decoration: line-through;
   opacity: 0.6;
+}
+
+.todo-list__actions-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
 @media (max-width: 768px) {
