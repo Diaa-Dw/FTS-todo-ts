@@ -1,16 +1,17 @@
+import { useState } from "react";
 import { IoSearch } from "react-icons/io5";
+import tableAttributes from "../../data/tableAttibutes.data";
+import useFetchTodos from "../../hooks/useFetchTodos";
+import Button from "../Button";
 import FormInput from "../FormInput";
+import Modal from "../Modal";
+import TableBody from "../TableBody";
+import TodoTableContainer from "../TableContainer";
+import TableHead from "../TableHead";
+import TableRow from "../TableRow";
 import TodoForm from "../TodoForm";
 import "./todosContanier.style.css";
-import TodoTableContainer from "../TableContainer";
-import useFetchTodos from "../../hooks/useFetchTodos";
-import { useState } from "react";
-import TableHead from "../TableHead";
-import TableBody from "../TableBody";
-import tableAttributes from "../../data/tableAttibutes.data";
-import TableRow from "../TableRow";
-import Modal from "../Modal";
-import Button from "../Button";
+import useFilterTodos from "../../hooks/useFilterTodos";
 
 const TodosContanier = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -18,6 +19,7 @@ const TodosContanier = () => {
   const [selectedId, setSelectedId] = useState<number | null>(null);
 
   const { todos, isLoading, setTodos } = useFetchTodos();
+  const filteredTodos = useFilterTodos({ todos, searchTerm });
 
   const handleDeleteTodo = () => {
     setTodos((prev) => prev.filter((todo) => todo.id !== selectedId));
@@ -40,7 +42,7 @@ const TodosContanier = () => {
       <TodoTableContainer isLoading={isLoading}>
         <TableHead tableAttributes={tableAttributes} />
         <TableBody>
-          {todos.map((todo) => (
+          {filteredTodos.map((todo) => (
             <TableRow
               key={todo.id}
               todo={todo}
