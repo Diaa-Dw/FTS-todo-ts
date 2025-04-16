@@ -1,3 +1,3 @@
 export interface TableBodyProps {
-  todos: Todo[] | [];
+  children: React.ReactNode;
 }
