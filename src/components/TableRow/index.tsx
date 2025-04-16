@@ -1,16 +1,7 @@
 import { FaCheck, FaHourglassHalf, FaTrash } from "react-icons/fa";
-import "./tableRow.style.css";
 import Button from "../Button";
-
-interface Todo {
-  id: number;
-  todo: string;
-  completed: boolean;
-}
-
-interface TableRowProps {
-  todo: Todo;
-}
+import "./tableRow.style.css";
+import { TableRowProps } from "./tableRow.type";
 
 const TableRow = ({ todo }: TableRowProps) => {
   const { todo: task } = todo;

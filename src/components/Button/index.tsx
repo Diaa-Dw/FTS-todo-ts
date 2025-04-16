@@ -1,11 +1,5 @@
 import "./button.style.css";
-
-interface ButtonProps {
-  variant: string;
-  size: string;
-  className?: string;
-  children: React.ReactNode;
-}
+import { ButtonProps } from "./button.type";
 
 const Button = ({ variant, size, className = "", children }: ButtonProps) => {
   return (

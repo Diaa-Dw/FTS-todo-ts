@@ -1,8 +1,5 @@
 import "./tableHead.style.css";
-
-interface TableHeadProps {
-  tableAttributes: string[];
-}
+import { TableHeadProps } from "./tableHead.type";
 
 const TableHead = ({ tableAttributes }: TableHeadProps) => {
   return (

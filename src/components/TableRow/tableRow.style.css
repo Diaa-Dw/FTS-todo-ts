@@ -43,10 +43,25 @@
   .todo-list__table-row > *:first-child {
     display: none;
   }
+  .todo-list__table-row > *:nth-child(2) {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border: none;
+    border-bottom: 1px solid var(--secondary-font-color);
+  }
 
   .todo-list__table-row > *:nth-child(3),
   .todo-list__table-row > *:last-child {
     display: flex;
     align-items: center;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 50%;
+  }
+  .todo-list__table-row > *:nth-child(3) {
+    justify-content: flex-start;
   }
 }

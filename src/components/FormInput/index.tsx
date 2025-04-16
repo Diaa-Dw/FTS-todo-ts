@@ -1,12 +1,5 @@
 import "./formInput.style.css";
-
-interface FormInputProps {
-  type: string;
-  className?: string;
-  icon: React.ReactNode;
-  placeholder: string;
-  required?: boolean;
-}
+import { FormInputProps } from "./formInput.type";
 
 const FormInput = ({
   type,
