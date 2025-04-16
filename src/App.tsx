@@ -1,3 +1,4 @@
+import { Toaster } from "react-hot-toast";
 import Header from "./components/Header";
 import TodosContanier from "./components/TodosContainer";
 
@@ -6,6 +7,7 @@ function App() {
     <>
       <Header />
       <TodosContanier />
+      <Toaster position='top-center' />
     </>
   );
 }
