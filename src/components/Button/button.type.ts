@@ -3,4 +3,6 @@ export interface ButtonProps {
   size: string;
   className?: string;
   children: React.ReactNode;
+  type: "submit" | "button";
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
