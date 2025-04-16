@@ -3,9 +3,23 @@ import Button from "../Button";
 import "./tableRow.style.css";
 import { TableRowProps } from "./tableRow.type";
 
-const TableRow = ({ todo }: TableRowProps) => {
-  const { todo: task } = todo;
+const TableRow = ({ todo, setTodos }: TableRowProps) => {
+  const { id, todo: task } = todo;
   const status = todo.completed ? "completed" : "pending";
+
+  //handler function to toggle todo status
+  const toggleTodoStatus = () => {
+    setTodos((prev) =>
+      prev.map((todo) =>
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo
+      )
+    );
+  };
+
+  //handler function to delete todo
+  const handleDeleteTodo = () => {
+    setTodos((prev) => prev.filter((todo) => todo.id !== id));
+  };
 
   return (
     <tr className={`todo-list__table-row ${status}`}>
@@ -18,10 +32,20 @@ const TableRow = ({ todo }: TableRowProps) => {
       </td>
       <td className='todo-list__table-cell'>
         <div className='todo-list__actions-container'>
-          <Button size='sm' variant='outline'>
+          <Button
+            type='button'
+            size='sm'
+            variant='outline'
+            onClick={toggleTodoStatus}
+          >
             {status === "completed" ? <FaHourglassHalf /> : <FaCheck />}
           </Button>
-          <Button size='sm' variant='outline'>
+          <Button
+            type='button'
+            size='sm'
+            variant='outline'
+            onClick={handleDeleteTodo}
+          >
             <FaTrash />
           </Button>
         </div>
