@@ -4,4 +4,6 @@ export interface FormInputProps {
   icon: React.ReactNode;
   placeholder: string;
   required?: boolean;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }

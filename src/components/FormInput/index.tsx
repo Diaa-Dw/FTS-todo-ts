@@ -7,6 +7,8 @@ const FormInput = ({
   icon,
   placeholder,
   required = true,
+  value,
+  onChange,
 }: FormInputProps) => {
   return (
     <div className={`todo-list__input-container ${className}`}>
@@ -18,6 +20,8 @@ const FormInput = ({
         placeholder={placeholder}
         className='todo-list__input--add'
         required={required}
+        onChange={onChange}
+        value={value}
       />
     </div>
   );
