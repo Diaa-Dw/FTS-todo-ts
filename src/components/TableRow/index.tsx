@@ -3,7 +3,12 @@ import Button from "../Button";
 import "./tableRow.style.css";
 import { TableRowProps } from "./tableRow.type";
 
-const TableRow = ({ todo, setTodos }: TableRowProps) => {
+const TableRow = ({
+  todo,
+  setTodos,
+  setIsModalOpen,
+  setSelectedId,
+}: TableRowProps) => {
   const { id, todo: task } = todo;
   const status = todo.completed ? "completed" : "pending";
 
@@ -16,9 +21,9 @@ const TableRow = ({ todo, setTodos }: TableRowProps) => {
     );
   };
 
-  //handler function to delete todo
-  const handleDeleteTodo = () => {
-    setTodos((prev) => prev.filter((todo) => todo.id !== id));
+  const onDeleteButtonClick = () => {
+    setSelectedId(id);
+    setIsModalOpen(true);
   };
 
   return (
@@ -44,7 +49,7 @@ const TableRow = ({ todo, setTodos }: TableRowProps) => {
             type='button'
             size='sm'
             variant='outline'
-            onClick={handleDeleteTodo}
+            onClick={onDeleteButtonClick}
           >
             <FaTrash />
           </Button>
