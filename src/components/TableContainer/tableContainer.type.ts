@@ -1,4 +1,4 @@
 export interface TableContainerProps {
-  todos: Todo[] | [];
   isLoading: boolean;
+  children: React.ReactNode;
 }
