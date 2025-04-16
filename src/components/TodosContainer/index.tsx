@@ -5,6 +5,10 @@ import "./todosContanier.style.css";
 import TodoTableContainer from "../TableContainer";
 import useFetchTodos from "../../hooks/useFetchTodos";
 import { useState } from "react";
+import TableHead from "../TableHead";
+import TableBody from "../TableBody";
+import tableAttributes from "../../data/tableAttibutes.data";
+import TableRow from "../TableRow";
 
 const TodosContanier = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -23,7 +27,14 @@ const TodosContanier = () => {
         />
       </section>
 
-      <TodoTableContainer todos={todos} isLoading={isLoading} />
+      <TodoTableContainer todos={todos} isLoading={isLoading}>
+        <TableHead tableAttributes={tableAttributes} />
+        <TableBody>
+          {todos.map((todo) => (
+            <TableRow key={todo.id} todo={todo} setTodos={setTodos} />
+          ))}
+        </TableBody>
+      </TodoTableContainer>
     </main>
   );
 };
