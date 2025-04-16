@@ -20,6 +20,10 @@
   background-color: var(--primary-action-color);
 }
 
+.btn.danger {
+  background-color: var(--danger-color);
+}
+
 .btn.lg {
   padding: 1.2rem 2.5rem;
 }

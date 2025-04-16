@@ -13,6 +13,8 @@
   --completed-status-color: #53d4ba;
   --pending-status-color: #f39c12;
 
+  --danger-color: #ef4444;
+
   /* Font varaibles */
   --font-family: "Josefin Sans", sans-serif;
   --base-font-size: 1.8rem;
