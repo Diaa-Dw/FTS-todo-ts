@@ -3,8 +3,11 @@ import FormInput from "../FormInput";
 import TodoForm from "../TodoForm";
 import "./todosContanier.style.css";
 import TodoTableContainer from "../TableContainer";
+import useFetchTodos from "../../hooks/useFetchTodos";
 
 const TodosContanier = () => {
+  const { todos, isLoading, setTodos } = useFetchTodos();
+
   return (
     <main className='todo-list'>
       <section className='todo-list__form-container'>
@@ -16,7 +19,7 @@ const TodosContanier = () => {
         />
       </section>
 
-      <TodoTableContainer />
+      <TodoTableContainer todos={todos} isLoading={isLoading} />
     </main>
   );
 };

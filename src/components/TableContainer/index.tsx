@@ -1,13 +1,11 @@
 import tableAttributes from "../../data/tableAttibutes.data";
-import useFetchTodos from "../../hooks/useFetchTodos";
 import Spinner from "../Spinner";
 import TableBody from "../TableBody";
 import TableHead from "../TableHead";
 import "./tableContainer.style.css";
+import { TableContainerProps } from "./tableContainer.type";
 
-const TodoTableContainer = () => {
-  const { todos, isLoading, setTodos } = useFetchTodos();
-
+const TodoTableContainer = ({ todos, isLoading }: TableContainerProps) => {
   if (isLoading) {
     return <Spinner />;
   }
