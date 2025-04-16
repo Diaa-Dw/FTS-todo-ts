@@ -1,16 +1,13 @@
 import TableRow from "../TableRow";
 import "./tableBody.style.css";
+import { TableBodyProps } from "./tableBody.type";
 
-const TableBody = () => {
+const TableBody = ({ todos }: TableBodyProps) => {
   return (
     <tbody className='todo-list__table-body'>
-      <TableRow
-        todo={{
-          id: 1,
-          todo: "Do something nice for someone you care about",
-          completed: false,
-        }}
-      />
+      {todos.map((todo) => (
+        <TableRow key={todo.id} todo={todo} />
+      ))}
     </tbody>
   );
 };
