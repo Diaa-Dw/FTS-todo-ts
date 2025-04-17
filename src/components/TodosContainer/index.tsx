@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IoSearch } from "react-icons/io5";
 import tableAttributes from "../../data/tableAttibutes.data";
-import useFetchTodos from "../../hooks/useFetchTodos";
+import useFilterTodos from "../../hooks/useFilterTodos";
 import Button from "../Button";
 import FormInput from "../FormInput";
 import Modal from "../Modal";
@@ -11,15 +11,24 @@ import TableHead from "../TableHead";
 import TableRow from "../TableRow";
 import TodoForm from "../TodoForm";
 import "./todosContanier.style.css";
-import useFilterTodos from "../../hooks/useFilterTodos";
+import {
+  getFromLocalStorage,
+  setToLocalStorage,
+} from "../../utils/localStorage";
 
 const TodosContanier = () => {
+  const [todos, setTodos] = useState<Todo[]>(
+    getFromLocalStorage<Todo[]>("todos") ?? []
+  );
   const [searchTerm, setSearchTerm] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedId, setSelectedId] = useState<number | null>(null);
 
-  const { todos, isLoading, setTodos } = useFetchTodos();
   const filteredTodos = useFilterTodos({ todos, searchTerm });
+
+  useEffect(() => {
+    setToLocalStorage("todos", todos);
+  }, [todos]);
 
   const handleDeleteTodo = () => {
     setTodos((prev) => prev.filter((todo) => todo.id !== selectedId));
@@ -39,7 +48,7 @@ const TodosContanier = () => {
         />
       </section>
 
-      <TodoTableContainer isLoading={isLoading}>
+      <TodoTableContainer>
         <TableHead tableAttributes={tableAttributes} />
         <TableBody>
           {filteredTodos.map((todo) => (

@@ -1,11 +1,7 @@
-import Spinner from "../Spinner";
 import "./tableContainer.style.css";
 import { TableContainerProps } from "./tableContainer.type";
 
-const TodoTableContainer = ({ isLoading, children }: TableContainerProps) => {
-  if (isLoading) {
-    return <Spinner />;
-  }
+const TodoTableContainer = ({ children }: TableContainerProps) => {
   return (
     <section className='todo-list__table-container'>
       <table className='todo-list__table'>{children}</table>
