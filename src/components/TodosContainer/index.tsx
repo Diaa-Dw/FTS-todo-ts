@@ -15,6 +15,7 @@ import {
   getFromLocalStorage,
   setToLocalStorage,
 } from "../../utils/localStorage";
+import toast from "react-hot-toast";
 
 const TodosContanier = () => {
   const [todos, setTodos] = useState<Todo[]>(
