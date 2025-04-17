@@ -1,6 +1,6 @@
 export interface TableRowProps {
   todo: Todo;
-  setTodos: React.Dispatch<React.SetStateAction<Todo[] | []>>;
+  setTodos: SetTodos;
   setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
   setSelectedId: React.Dispatch<React.SetStateAction<number | null>>;
 }
