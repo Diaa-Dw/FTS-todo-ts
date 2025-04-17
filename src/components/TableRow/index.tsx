@@ -3,6 +3,7 @@ import Button from "../Button";
 import "./tableRow.style.css";
 import { TableRowProps } from "./tableRow.type";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 const TableRow = ({
   todo,
@@ -22,6 +23,7 @@ const TableRow = ({
         todo.id === id ? { ...todo, completed: !todo.completed } : todo
       )
     );
+    toast.success("Your task status changed successfully🎉");
   };
 
   const onDeleteButtonClick = () => {
@@ -38,6 +40,7 @@ const TableRow = ({
       );
     }
     setIsTaskClicked(false);
+    toast.success("Your task updated successfully");
   };
 
   return (

@@ -33,6 +33,7 @@ const TodosContanier = () => {
   const handleDeleteTodo = () => {
     setTodos((prev) => prev.filter((todo) => todo.id !== selectedId));
     setIsModalOpen(false);
+    toast.success("Your task deleted successfully");
   };
 
   return (
