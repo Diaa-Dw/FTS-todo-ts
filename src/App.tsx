@@ -19,7 +19,7 @@ function App() {
 
   return (
     <>
-      <Header setTheme={setTheme} />
+      <Header setTheme={setTheme} theme={theme} />
       <TodosContanier />
       <Toaster position='top-center' />
     </>

@@ -1,9 +1,9 @@
-import { IoSunny } from "react-icons/io5";
+import { IoMoon, IoSunny } from "react-icons/io5";
 import Button from "../Button";
 import "./header.style.css";
 import { HeaderProps } from "./header.type";
 
-const Header = ({ setTheme }: HeaderProps) => {
+const Header = ({ theme, setTheme }: HeaderProps) => {
   const handleToggleThem = () => {
     setTheme((prevTheme) => (prevTheme === "dark" ? "light" : "dark"));
   };
@@ -17,7 +17,7 @@ const Header = ({ setTheme }: HeaderProps) => {
         type='button'
         onClick={handleToggleThem}
       >
-        <IoSunny />
+        {theme === "dark" ? <IoSunny /> : <IoMoon />}
       </Button>
     </header>
   );
