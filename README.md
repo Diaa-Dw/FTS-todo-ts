@@ -1,54 +1,55 @@
-# React + TypeScript + Vite
+# FTS To-Do: A TypeScript-Powered Task Manager
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+FTS To-Do is a modern, responsive task management application designed to help users efficiently organize and track their tasks. Built with TypeScript, JavaScript, CSS, and HTML, it features a clean and intuitive user interface for an enhanced productivity experience.
 
-Currently, two official plugins are available:
+![image](https://github.com/user-attachments/assets/bce5473a-7cfc-4b31-aded-643a4e1142a4)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🚀 Live Demo  
+Check out the live demo of the application [here](https://todo-ts-v0.netlify.app/).  
+<!-- Replace # with the live demo URL -->
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## ✨ Features
+
+- **Task Management**: Create, edit, and delete tasks effortlessly.
+- **Responsive Design**: Fully functional across all devices.
+- **Type Safety**: Built with TypeScript for enhanced code reliability.
+- **Modern UI**: Designed with CSS for a clean and appealing user interface.
+
+---
+
+## 🛠️ Technologies Used
+
+- **React**  
+- **TypeScript**  
+
+---
+
+## 📦 Installation
+
+Follow these steps to set up the project locally:
+
+```bash
+# Clone the repository
+git clone https://github.com/Diaa-Dw/FTS-todo-ts.git
+
+# Navigate to the project directory
+cd FTS-todo-ts
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 📖 Usage
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+1. Open the application in your browser.
+2. Begin adding tasks by typing in the input field and pressing enter.
+3. Use the edit and delete features to manage your tasks.
