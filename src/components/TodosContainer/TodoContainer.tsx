@@ -1,7 +1,12 @@
 import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { IoSearch } from "react-icons/io5";
 import tableAttributes from "../../data/tableAttibutes.data";
 import useFilterTodos from "../../hooks/useFilterTodos";
+import {
+  getFromLocalStorage,
+  setToLocalStorage,
+} from "../../utils/localStorage";
 import Button from "../Button";
 import FormInput from "../FormInput";
 import Modal from "../Modal";
@@ -11,11 +16,6 @@ import TableHead from "../TableHead";
 import TableRow from "../TableRow";
 import TodoForm from "../TodoForm";
 import "./todosContanier.style.css";
-import {
-  getFromLocalStorage,
-  setToLocalStorage,
-} from "../../utils/localStorage";
-import toast from "react-hot-toast";
 
 const TodosContanier = () => {
   const [todos, setTodos] = useState<Todo[]>(
