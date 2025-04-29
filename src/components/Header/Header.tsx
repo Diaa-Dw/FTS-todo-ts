@@ -1,5 +1,5 @@
 import { IoMoon, IoSunny } from "react-icons/io5";
-import Button from "../Button";
+import { Button } from "../";
 import "./header.style.css";
 import { HeaderProps } from "./header.type";
 

@@ -1,5 +1,5 @@
 import { FaCheck, FaHourglassHalf, FaTrash } from "react-icons/fa";
-import Button from "../Button";
+import { Button } from "../";
 import "./tableRow.style.css";
 import { TableRowProps } from "./tableRow.type";
 import { useState } from "react";

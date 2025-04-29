@@ -1,20 +1,22 @@
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { IoSearch } from "react-icons/io5";
+import {
+  Button,
+  FormInput,
+  Modal,
+  TableBody,
+  TableHead,
+  TodoForm,
+  TodoTableContainer,
+} from "../";
 import tableAttributes from "../../data/tableAttibutes.data";
 import useFilterTodos from "../../hooks/useFilterTodos";
 import {
   getFromLocalStorage,
   setToLocalStorage,
 } from "../../utils/localStorage";
-import Button from "../Button";
-import FormInput from "../FormInput";
-import Modal from "../Modal";
-import TableBody from "../TableBody";
-import TodoTableContainer from "../TableContainer";
-import TableHead from "../TableHead";
-import TableRow from "../TableRow";
-import TodoForm from "../TodoForm";
+import TableRow from "../TableRow/TableRow";
 import "./todosContanier.style.css";
 
 const TodosContanier = () => {

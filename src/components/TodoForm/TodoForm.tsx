@@ -1,8 +1,7 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { IoMdAdd } from "react-icons/io";
-import Button from "../Button";
-import FormInput from "../FormInput";
+import { Button, FormInput } from "../";
 import "./todoForm.style.css";
 import { TodoFormProps } from "./todoForm.type";
 

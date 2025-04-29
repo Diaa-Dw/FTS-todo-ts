@@ -2,7 +2,7 @@ import { IoMdClose } from "react-icons/io";
 import useModalEffect from "../../hooks/useModalEffect";
 import "./modal.style.css";
 import { ModalProps } from "./modal.type";
-import Button from "../Button";
+import { Button } from "../";
 
 const Modal = ({ title, isOpen, onClose, children }: ModalProps) => {
   useModalEffect({ isOpen, onClose });
