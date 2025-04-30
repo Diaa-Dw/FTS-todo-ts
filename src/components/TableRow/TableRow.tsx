@@ -7,24 +7,15 @@ import toast from "react-hot-toast";
 
 const TableRow = ({
   todo,
-  setTodos,
+  onToggleComplete,
+  onUpdateTodo,
   setIsModalOpen,
   setSelectedId,
 }: TableRowProps) => {
-  const [taskValue, setTaskValue] = useState(todo.todo);
+  const [todoContent, setTodoContent] = useState(todo.todo);
   const [isTaskClicked, setIsTaskClicked] = useState<boolean>(false);
   const { id, todo: task } = todo;
   const status = todo.completed ? "completed" : "pending";
-
-  //handler function to toggle todo status
-  const toggleTodoStatus = () => {
-    setTodos((prev) =>
-      prev.map((todo) =>
-        todo.id === id ? { ...todo, completed: !todo.completed } : todo
-      )
-    );
-    toast.success("Your task status changed successfully🎉");
-  };
 
   const onDeleteButtonClick = () => {
     setSelectedId(id);
@@ -32,12 +23,8 @@ const TableRow = ({
   };
   //handler function to update todo when input loses focus
   const handleBlur = () => {
-    if (taskValue !== task) {
-      setTodos((prev) =>
-        prev.map((todo) =>
-          todo.id === id ? { ...todo, todo: taskValue } : todo
-        )
-      );
+    if (todoContent !== task) {
+      onUpdateTodo(id, todoContent);
     }
     setIsTaskClicked(false);
     toast.success("Your task updated successfully");
@@ -52,8 +39,8 @@ const TableRow = ({
       >
         {isTaskClicked ? (
           <input
-            value={taskValue}
-            onChange={(e) => setTaskValue(e.target.value)}
+            value={todoContent}
+            onChange={(e) => setTodoContent(e.target.value)}
             className='todo-list__table-cell-input'
             onBlur={handleBlur}
           />
@@ -70,7 +57,7 @@ const TableRow = ({
             type='button'
             size='sm'
             variant='outline'
-            onClick={toggleTodoStatus}
+            onClick={() => onToggleComplete(id)}
           >
             {status === "completed" ? <FaHourglassHalf /> : <FaCheck />}
           </Button>

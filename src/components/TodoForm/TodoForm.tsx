@@ -1,26 +1,26 @@
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import toast from "react-hot-toast";
 import { IoMdAdd } from "react-icons/io";
 import { Button, FormInput } from "../";
 import "./todoForm.style.css";
 import { TodoFormProps } from "./todoForm.type";
 
-const TodoForm = ({ setTodos }: TodoFormProps) => {
+const TodoForm = ({ onAddTodo }: TodoFormProps) => {
   const [task, setTask] = useState("");
 
-  const handleAddTodo = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleAddTodo = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (task.length < 3) {
       toast.error("Your task must include at least 3 characters⛔");
       return;
     }
     const id = Number(`${new Date().getTime()}`.slice(-7));
-    const taskObj = {
+    const todo = {
       id,
       todo: task,
       completed: false,
     };
-    setTodos((prev) => [taskObj, ...prev]);
+    onAddTodo(todo);
     setTask("");
     toast.success("Task add successfuly🎉");
   };

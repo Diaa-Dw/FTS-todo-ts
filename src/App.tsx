@@ -1,25 +1,28 @@
 import { useEffect, useState } from "react";
 import { Toaster } from "react-hot-toast";
 import Header from "./components/Header";
-import useToggleTheme from "./hooks/useToggleTheme";
+import useApplyTheme from "./hooks/useApplyTheme";
 import { getFromLocalStorage, setToLocalStorage } from "./utils/localStorage";
 import { TodosContanier } from "./components";
 
 function App() {
-  const [theme, setTheme] = useState<"light" | "dark">(
-    getFromLocalStorage<"light" | "dark">("theme") ?? "dark"
+  const [theme, setTheme] = useState(
+    () => getFromLocalStorage<Theme>("theme", "dark") ?? "dark"
   );
 
-  //set theme to localStorage
   useEffect(() => {
     setToLocalStorage("theme", theme);
   }, [theme]);
 
-  useToggleTheme(theme);
+  useApplyTheme(theme);
+
+  const onThemeChange = () => {
+    setTheme((prevTheme) => (prevTheme === "dark" ? "light" : "dark"));
+  };
 
   return (
     <>
-      <Header setTheme={setTheme} theme={theme} />
+      <Header onThemeChange={onThemeChange} theme={theme} />
       <TodosContanier />
       <Toaster position='top-center' />
     </>

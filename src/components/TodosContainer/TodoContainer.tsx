@@ -20,8 +20,8 @@ import TableRow from "../TableRow/TableRow";
 import "./todosContanier.style.css";
 
 const TodosContanier = () => {
-  const [todos, setTodos] = useState<Todo[]>(
-    getFromLocalStorage<Todo[]>("todos") ?? []
+  const [todos, setTodos] = useState<Todo[]>(() =>
+    getFromLocalStorage<Todo[]>("todos", [])
   );
   const [searchTerm, setSearchTerm] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -33,16 +33,37 @@ const TodosContanier = () => {
     setToLocalStorage("todos", todos);
   }, [todos]);
 
-  const handleDeleteTodo = () => {
+  const onDeleteTodo = () => {
     setTodos((prev) => prev.filter((todo) => todo.id !== selectedId));
     setIsModalOpen(false);
     toast.success("Your task deleted successfully");
   };
 
+  const onAddTodo = (todo: Todo) => {
+    setTodos((prev) => [todo, ...prev]);
+  };
+
+  const onToggleComplete = (todoId: number) => {
+    setTodos((prev) =>
+      prev.map((todo) =>
+        todo.id === todoId ? { ...todo, completed: !todo.completed } : todo
+      )
+    );
+    toast.success("Your task status changed successfully🎉");
+  };
+
+  const onUpdateTodo = (todoId: number, newContent: string) => {
+    setTodos((prev) =>
+      prev.map((todo) =>
+        todo.id === todoId ? { ...todo, todo: newContent } : todo
+      )
+    );
+  };
+
   return (
     <main className='todo-list'>
       <section className='todo-list__form-container'>
-        <TodoForm setTodos={setTodos} />
+        <TodoForm onAddTodo={onAddTodo} />
         <FormInput
           type='search'
           icon={<IoSearch />}
@@ -59,7 +80,8 @@ const TodosContanier = () => {
             <TableRow
               key={todo.id}
               todo={todo}
-              setTodos={setTodos}
+              onToggleComplete={onToggleComplete}
+              onUpdateTodo={onUpdateTodo}
               setIsModalOpen={setIsModalOpen}
               setSelectedId={setSelectedId}
             />
@@ -86,7 +108,7 @@ const TodosContanier = () => {
             variant='danger'
             size='lg'
             type='button'
-            onClick={handleDeleteTodo}
+            onClick={onDeleteTodo}
           >
             Delete
           </Button>

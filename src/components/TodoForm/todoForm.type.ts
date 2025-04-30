@@ -1,3 +1,3 @@
 export interface TodoFormProps {
-  setTodos: SetTodos;
+  onAddTodo: (todo: Todo) => void;
 }

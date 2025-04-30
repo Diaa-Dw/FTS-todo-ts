@@ -3,20 +3,11 @@ import { Button } from "../";
 import "./header.style.css";
 import { HeaderProps } from "./header.type";
 
-const Header = ({ theme, setTheme }: HeaderProps) => {
-  const handleToggleThem = () => {
-    setTheme((prevTheme) => (prevTheme === "dark" ? "light" : "dark"));
-  };
-
+const Header = ({ theme, onThemeChange }: HeaderProps) => {
   return (
     <header className='header'>
       <h1 className='header__title'>TODO</h1>
-      <Button
-        variant='outline'
-        size='md'
-        type='button'
-        onClick={handleToggleThem}
-      >
+      <Button variant='outline' size='md' type='button' onClick={onThemeChange}>
         {theme === "dark" ? <IoSunny /> : <IoMoon />}
       </Button>
     </header>
