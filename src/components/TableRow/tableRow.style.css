@@ -1,0 +1,83 @@
+.todo-list__task-status {
+  padding: 0.8rem 1rem;
+
+  border-radius: 5px;
+
+  color: var(--secondary-color);
+}
+
+.todo-list__table-row.completed .todo-list__task-status {
+  background-color: var(--completed-status-color);
+}
+.todo-list__table-row.pending .todo-list__task-status {
+  background-color: var(--pending-status-color);
+}
+
+.todo-list__table-cell {
+  padding: 1rem;
+  border: 1px solid var(--secondary-font-color);
+}
+
+.todo-list__table-row.completed .todo-list__table-cell--task {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.todo-list__actions-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.todo-list__table-cell-input {
+  width: 100%;
+  padding: 1rem;
+
+  color: var(--primary-font-color);
+  font-size: inherit;
+  text-align: left;
+  font-family: inherit;
+
+  border: 1px solid var(--secondary-font-color);
+  border-radius: 5px;
+  outline: none;
+
+  background: transparent;
+}
+
+@media (max-width: 768px) {
+  .todo-list__table-row {
+    width: 100%;
+    display: block;
+    padding: 0rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--secondary-font-color);
+    border-radius: 5px;
+  }
+
+  .todo-list__table-row > *:first-child {
+    display: none;
+  }
+  .todo-list__table-row > *:nth-child(2) {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border: none;
+    border-bottom: 1px solid var(--secondary-font-color);
+  }
+
+  .todo-list__table-row > *:nth-child(3),
+  .todo-list__table-row > *:last-child {
+    display: flex;
+    align-items: center;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 50%;
+  }
+  .todo-list__table-row > *:nth-child(3) {
+    justify-content: flex-start;
+  }
+}

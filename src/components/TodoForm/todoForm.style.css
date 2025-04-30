@@ -1,0 +1,5 @@
+.todo-list__form {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
